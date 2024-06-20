@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="no_tienes_una_cuenta_registrate_aqui">¿No tienes una cuenta? Registrate Aqui.</string>
+    <string name="home">home</string>
+    <string name="nombre">Nombre</string>
+    <string name="apellido">Apellido</string>
+    <string name="correo_electronico">Correo electrónico</string>
+    <string name="contraseña">Contraseña</string>
+    <string name="confirmar_contraseña">Confirmar contraseña</string>
+    <string name="crear_cuenta">CREAR CUENTA</string>
+
+
+</resources>
