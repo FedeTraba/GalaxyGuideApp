@@ -2,10 +2,12 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="grisCampo">#808080</color>
+    <color name="grisCampo">#7E8492</color>
     <color name="blueButton">#2196F3</color>
     <color name="textColorHint">#808080</color>
     <color name="background">#020205</color>
     <color name="textColor">#FFFFFF</color>
+    <color name="darkGray">#333333</color>
+
 
 </resources>

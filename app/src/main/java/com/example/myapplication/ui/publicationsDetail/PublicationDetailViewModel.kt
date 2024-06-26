@@ -1,35 +1,35 @@
-package com.example.myapplication.ui
+package com.example.myapplication.ui.publicationsDetail
 
+import android.util.Log
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.myapplication.data.PublicationsRepository
 import com.example.myapplication.model.Publication
-
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.newSingleThreadContext
 import kotlin.coroutines.CoroutineContext
 
-class PublicationViewModel : ViewModel() {
+class PublicationDetailViewModel : ViewModel(){
     val publiRepo: PublicationsRepository = PublicationsRepository()
-    var publication = MutableLiveData<Publication?>()
 
     private val coroutineContext: CoroutineContext = newSingleThreadContext("publivs")
     private val scope = CoroutineScope(coroutineContext)
 
-    fun init(date: String){
+    private val _publication = MutableLiveData<Publication?>()
+    val publication: MutableLiveData<Publication?> get() = _publication
+
+    fun init(date: String) {
         scope.launch {
-            kotlin.runCatching {
-                publiRepo.getPublicationByDate(date)
-            }.onSuccess {
-                publication.postValue(it ?: Publication())
-            }.onFailure {
-                val publi = Publication()
-                publi.title = "ERRORRR"
-                publication.postValue(Publication())
+            try{
+                var publi = publiRepo.getPublicationByDate(date)
+                _publication.postValue(publi)
+                Log.d("TPO-LOG","Existoso"+ publi.toString())
+            }catch (e: Exception){
+                Log.e("TPO-LOG", "MainViewModel:$e" )
             }
+
         }
     }
-
-
 }

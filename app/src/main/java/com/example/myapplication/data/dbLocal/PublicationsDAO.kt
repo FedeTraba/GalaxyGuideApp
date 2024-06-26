@@ -9,15 +9,15 @@ import androidx.room.Query
 @Dao
 interface PublicationsDAO {
 
-    @Query("SELECT * FROM publicaciones WHERE date = :date LIMIT 1")
+    @Query("SELECT * FROM publicaciones ")
     fun getAll() : List<PublicationLocal>
 
-    @Query("SELECT * FROM publicaciones")
+    @Query("SELECT * FROM publicaciones WHERE date = :date LIMIT 1")
     fun getByDate(date: String) : PublicationLocal
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun save(vararg publication: PublicationLocal)
 
     @Delete
-    fun delete(publicationLocal: PublicationLocal)
+    fun delete(publication: PublicationLocal)
 }

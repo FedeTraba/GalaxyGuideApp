@@ -56,6 +56,7 @@ dependencies {
     implementation(libs.firebase.auth.ktx)
     implementation(libs.firebase.firestore)
     implementation(libs.androidx.room.runtime)
+    implementation(libs.picasso)
     annotationProcessor(libs.androidx.room.compiler)
     implementation(libs.androidx.room.ktx)
 

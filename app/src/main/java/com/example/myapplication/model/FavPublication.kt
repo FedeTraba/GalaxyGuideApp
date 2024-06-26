@@ -7,7 +7,8 @@ data class FavPublication (
     var title: String,
     var url: String,
     var copyright: String? = null,
+    val usuarioID: String? = null
 ){
-    constructor() : this("","","","","","")
+    constructor() : this("","","","","","","")
 
 }

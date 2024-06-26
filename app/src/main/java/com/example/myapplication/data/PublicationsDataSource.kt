@@ -13,6 +13,7 @@ class PublicationsDataSource {
     val api: PublicationsAPI
 
 
+
     init {
         api = Retrofit.Builder()
             .baseUrl(API_BASE_URL)
@@ -37,14 +38,14 @@ class PublicationsDataSource {
     suspend fun getPublicationByDate(date: String): Publication? {
         val result = api.getPublicationByDate(API_KEY, date)
 
-        return if (result.isSuccessful) {
-            Log.d("DEMO_APIS", "Publications DataSource Resultado Exitoso")
-            result.body()
-        } else {
-            Log.d("DEMO_APIS", "Publications DataSource Resultado Fallido")
-            null
-        }
+    return if (result.isSuccessful) {
+        Log.d("DEMO_APIS", "Publications DataSource Resultado Exitoso")
+        result.body()
+    } else {
+        Log.d("DEMO_APIS", "Publications DataSource Resultado Fallido")
+        null
     }
+}
 
 
     suspend fun getPublicationsByDateRange(startDate: String, endDate: String): List<Publication> {
