@@ -65,28 +65,5 @@ class CrearCuentaActivity : AppCompatActivity() {
         }
 
 
-        editTextEmail.setOnFocusChangeListener { _, hasFocus ->
-            if (hasFocus) {
-                editTextEmail.hint = ""
-            } else {
-                editTextEmail.hint = "Correo Electrónico"
-            }
-        }
-
-        editTextPassword.setOnFocusChangeListener { _, hasFocus ->
-            if (hasFocus) {
-                editTextPassword.hint = ""
-            } else {
-                editTextPassword.hint = "Contraseña"
-            }
-        }
-
-        editTextPasswordConfirm.setOnFocusChangeListener { _, hasFocus ->
-            if (hasFocus) {
-                editTextPasswordConfirm.hint = ""
-            } else {
-                editTextPasswordConfirm.hint = "Confirmar Contraseña"
-            }
-        }
     }
 }

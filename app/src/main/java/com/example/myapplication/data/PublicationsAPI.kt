@@ -6,8 +6,6 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 
 interface PublicationsAPI {
-    @GET("planetary/apod?")
-    suspend fun getTodayPublication(@Query("api_key") apiKey: String): Response<Publication?>
 
     @GET("planetary/apod?")
     suspend fun getPublicationByDate(

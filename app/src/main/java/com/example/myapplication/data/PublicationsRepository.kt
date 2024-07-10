@@ -1,20 +1,20 @@
 package com.example.myapplication.data
 
 import com.example.myapplication.model.Publication
-import com.google.api.Context
+import android.content.Context
 
 class PublicationsRepository {
     private val publiDs = PublicationsDataSource()
-
-    suspend fun getTodayPublication(): Publication? {
-        return publiDs.getTodayPublication()
-    }
 
     suspend fun getPublicationByDate(date: String): Publication? {
         return publiDs.getPublicationByDate(date)
     }
 
-    suspend fun getPublicationsByDateRange(startDate: String, endDate: String): List<Publication> {
-        return publiDs.getPublicationsByDateRange(startDate, endDate)
+    suspend fun getPublicationsByDateRange(startDate: String, endDate: String, context: Context, localSearch: Boolean): List<Publication> {
+        return publiDs.getPublicationsByDateRange(startDate, endDate, context, localSearch)
+    }
+
+    suspend fun buscarPublicationsByKeywords(startDate: String, endDate: String, keywords: String): List<Publication> {
+        return publiDs.buscarPublicationsByKeywords(startDate, endDate, keywords)
     }
 }

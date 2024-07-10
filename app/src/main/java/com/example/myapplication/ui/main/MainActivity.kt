@@ -17,6 +17,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.R
 import com.example.myapplication.ui.favorites.FavoritesActivity
+import com.example.myapplication.ui.filter.FilterActivity
 
 class MainActivity : AppCompatActivity() {
     private lateinit var viewModel: MainViewModel
@@ -39,6 +40,7 @@ class MainActivity : AppCompatActivity() {
         navFav = findViewById(R.id.favNav)
         navHome = findViewById(R.id.homeNav)
         pb = findViewById(R.id.progressbar)
+        navSearch = findViewById(R.id.searchNav)
 
         viewModel = ViewModelProvider(this)[MainViewModel::class.java]
 
@@ -54,7 +56,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         pb.visibility = View.VISIBLE
-        viewModel.init()
+        viewModel.init(this)
 
 
         initListeners()
@@ -72,6 +74,11 @@ class MainActivity : AppCompatActivity() {
         navHome.setOnClickListener{
             Log.i("TPO-LOG","click para ver favoritos")
             val intent = Intent(this,MainActivity::class.java)
+            startActivity(intent)
+        }
+        navSearch.setOnClickListener{
+            Log.i("TPO-LOG","click para ver favoritos")
+            val intent = Intent(this, FilterActivity::class.java)
             startActivity(intent)
         }
     }

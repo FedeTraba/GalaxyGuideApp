@@ -6,7 +6,7 @@ import kotlinx.coroutines.tasks.await
 
 class FavDataSource {
     private val db = FirebaseFirestore.getInstance()
-    private val collection = "publicaciones"
+    private val collection = "publicacionesFavoritas"
 
     suspend fun savePublication(publication: Publication) {
         val user = FirebaseAuth.getInstance().currentUser
@@ -22,7 +22,6 @@ class FavDataSource {
         db.collection(collection)
             .add(favPublication).await()
     }
-
     suspend fun getFavorites(): List<FavPublication> {
         val user = FirebaseAuth.getInstance().currentUser
         val result = db.collection(collection).whereEqualTo("usuarioID", user?.email).get().await()
@@ -33,7 +32,7 @@ class FavDataSource {
         val user = FirebaseAuth.getInstance().currentUser
         val querySnapshot = db.collection(collection)
             .whereEqualTo("usuarioID", user?.email)
-            .whereEqualTo("url", publication.url)
+            .whereEqualTo("date", publication.date)
             .get()
             .await()
 

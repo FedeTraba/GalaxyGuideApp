@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.favorites.FavoritesActivity"
+    android:background="@color/black">
+
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="409dp"
+        android:layout_height="594dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="147dp">
+
+            <EditText
+                android:id="@+id/etStartDate"
+                android:layout_width="161dp"
+                android:layout_height="39dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="9dp"
+                android:autoSizeMaxTextSize="100dp"
+                android:autoSizeMinTextSize="16dp"
+                android:autoSizeTextType="uniform"
+                android:background="@drawable/borde_login"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:hint="YYYY-MM-DD"
+                android:textColor="@color/white"
+                android:textColorHint="@color/grisCampo"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtFechaInicio" />
+
+            <EditText
+                android:id="@+id/etEndDate"
+                android:layout_width="161dp"
+                android:layout_height="39dp"
+                android:layout_marginTop="9dp"
+                android:layout_marginEnd="30dp"
+                android:autoSizeMaxTextSize="100dp"
+                android:autoSizeMinTextSize="16dp"
+                android:autoSizeTextType="uniform"
+                android:background="@drawable/borde_login"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:hint="YYYY-MM-DD"
+                android:textColor="@color/white"
+                android:textColorHint="@color/grisCampo"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtFechaFin" />
+
+
+            <EditText
+                android:id="@+id/keyWords"
+                android:layout_width="260dp"
+                android:layout_height="44dp"
+                android:layout_marginStart="25dp"
+                android:layout_marginBottom="16dp"
+                android:autoSizeMaxTextSize="100dp"
+                android:autoSizeMinTextSize="16dp"
+                android:autoSizeTextType="uniform"
+                android:background="@drawable/borde_login"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:hint="Dark hole..."
+                android:textColor="@color/white"
+                android:textColorHint="@color/grisCampo"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/txtFechaInicio"
+                android:layout_width="121dp"
+                android:layout_height="26dp"
+                android:layout_marginStart="50dp"
+                android:gravity="center"
+                android:text="@string/fecha_inicio"
+                android:textColor="@color/white"
+                android:textColorHighlight="@color/white"
+                android:textColorHint="@color/white"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/txtFechaFin"
+                android:layout_width="121dp"
+                android:layout_height="26dp"
+                android:layout_marginEnd="52dp"
+                android:gravity="center"
+                android:text="Fecha Fin"
+                android:textColor="@color/white"
+                android:textColorHighlight="@color/white"
+                android:textColorHint="@color/white"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/buscar"
+                android:layout_width="33dp"
+                android:layout_height="33dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/borde_login"
+                android:backgroundTint="@color/blueButton"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.302"
+                app:layout_constraintStart_toEndOf="@+id/borrar">
+
+                <ImageView
+                    android:id="@+id/imgBuscar"
+                    android:layout_width="22dp"
+                    android:layout_height="21dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/iconosearch" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/borrar"
+                android:layout_width="33dp"
+                android:layout_height="33dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/borde_login"
+                android:backgroundTint="#FF0000"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/keyWords">
+
+                <ImageView
+                    android:id="@+id/imgBorrar"
+                    android:layout_width="23dp"
+                    android:layout_height="23dp"
+                    android:layout_marginEnd="1dp"
+                    android:rotation="45"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/iconmas" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="446dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvFilter"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </LinearLayout>
+        </ScrollView>
+
+    </LinearLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="59dp"
+        android:layout_alignParentBottom="true"
+        android:background="#5E5E5E"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:layout_constraintVertical_bias="1.0">
+
+        <ImageView
+            android:id="@+id/searchNav"
+            android:layout_width="46dp"
+            android:layout_height="37dp"
+            android:layout_marginStart="80dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/iconosearch" />
+
+        <ImageView
+            android:id="@+id/homeNav"
+            android:layout_width="51dp"
+            android:layout_height="36dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/favNav"
+            app:layout_constraintHorizontal_bias="0.49"
+            app:layout_constraintStart_toEndOf="@+id/searchNav"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.304"
+            app:srcCompat="@drawable/iconohome" />
+
+        <ImageView
+            android:id="@+id/favNav"
+            android:layout_width="44dp"
+            android:layout_height="36dp"
+            android:layout_marginEnd="80dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.391"
+            app:srcCompat="@drawable/iconofavorite" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logocompleto" />
+</androidx.constraintlayout.widget.ConstraintLayout>

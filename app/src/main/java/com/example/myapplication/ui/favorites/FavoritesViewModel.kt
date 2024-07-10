@@ -26,28 +26,13 @@ class FavoritesViewModel : ViewModel() {
             try {
                 val fav = repoFav.getFavorites()
                 _favorites.postValue(fav)
-                Log.i("TPO-LOG", "Get favorites: $favorites")
+                Log.i("TPO-LOG", "Get favorites: ${favorites}")
             } catch (e: Exception) {
                 Log.e("TPO-LOG", "Error $e")
             }
         }
     }
 
-    fun cambiarFavorite(publication: Publication) {
-        scopeFavorites.launch {
-            try {
-                val currentFavorites = _favorites.value ?: emptyList()
-                if (currentFavorites.any { it.date == publication.date }) {
-                    repoFav.removePublicationFav(publication)
-                } else {
-                    repoFav.savePublicationFav(publication)
-                }
-                cargarFavorites()
-            } catch (e: Exception) {
-                Log.e("TPO-LOG", "Error $e")
-            }
-        }
-    }
 }
 
 

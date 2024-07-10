@@ -14,6 +14,7 @@ import androidx.lifecycle.Observer
 import com.example.myapplication.R
 import com.example.myapplication.model.Publication
 import com.example.myapplication.ui.favorites.FavoritesActivity
+import com.example.myapplication.ui.filter.FilterActivity
 import com.example.myapplication.ui.main.MainActivity
 import com.squareup.picasso.Picasso
 
@@ -41,6 +42,7 @@ class PublicationDetailActivity : AppCompatActivity() {
         tvAutor = findViewById(R.id.txtAutor)
         navFav = findViewById(R.id.favNav)
         navHome = findViewById(R.id.homeNav)
+        navSearch = findViewById(R.id.searchNav)
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -63,12 +65,17 @@ class PublicationDetailActivity : AppCompatActivity() {
     fun initListeners(){
         navFav.setOnClickListener{
             Log.i("TPO-LOG","click para ver favoritos")
-            val intent = Intent(this, FavoritesActivity::class.java)
+            val intent = Intent(this,FavoritesActivity::class.java)
             startActivity(intent)
         }
         navHome.setOnClickListener{
-            Log.i("TPO-LOG","click para ver favoritos")
-            val intent = Intent(this,MainActivity::class.java)
+            Log.i("TPO-LOG","click para ver el home")
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        }
+        navSearch.setOnClickListener{
+            Log.i("TPO-LOG","click para la busqueda")
+            val intent = Intent(this, FilterActivity::class.java)
             startActivity(intent)
         }
     }

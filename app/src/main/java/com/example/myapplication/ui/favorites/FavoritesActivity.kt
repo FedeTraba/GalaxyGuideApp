@@ -6,6 +6,7 @@ import MainViewModel
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -16,6 +17,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.R
+import com.example.myapplication.ui.filter.FilterActivity
 import com.example.myapplication.ui.main.MainActivity
 import com.example.myapplication.ui.main.PublicationAdapter
 import com.google.firebase.auth.FirebaseAuth
@@ -40,6 +42,7 @@ class FavoritesActivity : AppCompatActivity() {
         }
         navFav = findViewById(R.id.favNav)
         navHome = findViewById(R.id.homeNav)
+        navSearch = findViewById(R.id.searchNav)
         txtEmailUser = findViewById(R.id.txtEmail)
 
         val user = FirebaseAuth.getInstance().currentUser
@@ -52,9 +55,9 @@ class FavoritesActivity : AppCompatActivity() {
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = adapter
 
-        viewModel.favorites.observe(this, Observer { favPublications ->
+        viewModel.favorites.observe(this) { favPublications ->
             adapter.update(favPublications)
-        })
+        }
 
         initListeners()
 
@@ -68,6 +71,11 @@ class FavoritesActivity : AppCompatActivity() {
         navHome.setOnClickListener{
             Log.i("TPO-LOG","click para ver favoritos")
             val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        }
+        navSearch.setOnClickListener{
+            Log.i("TPO-LOG","click para ver favoritos")
+            val intent = Intent(this, FilterActivity::class.java)
             startActivity(intent)
         }
     }

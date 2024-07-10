@@ -94,29 +94,12 @@ class LoginActivity : AppCompatActivity() {
                         } else {
                             Toast.makeText(this, "Error: ${e.message}", Toast.LENGTH_LONG).show()
                         }
-                        Log.e("DEMO_API", "signInWithEmailAndPassword: ${e.message}")
                     }
             } else {
                 Toast.makeText(this, "Por favor, complete todos los campos.", Toast.LENGTH_LONG).show()
             }
         }
 
-        // Limpiar cuando el usuario comienza a escribir
-        correoElectronico.setOnFocusChangeListener { _, hasFocus ->
-            if (hasFocus) {
-                correoElectronico.hint = ""
-            } else {
-                correoElectronico.hint = "Correo Electrónico"
-            }
-        }
-
-        contraseña.setOnFocusChangeListener { _, hasFocus ->
-            if (hasFocus) {
-                contraseña.hint = ""
-            } else {
-                contraseña.hint = "Contraseña"
-            }
-        }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -143,17 +126,16 @@ class LoginActivity : AppCompatActivity() {
                 val email = firebaseUser.email
 
                 if (authResult.additionalUserInfo!!.isNewUser){
-                    //Crear account
-                    Toast.makeText(this@LoginActivity, "Cuenta creada...", Toast.LENGTH_LONG).show()
+                    Toast.makeText(this, "Cuenta creada...", Toast.LENGTH_LONG).show()
                 }else{
-                    Toast.makeText(this@LoginActivity, "Cuenta existente...", Toast.LENGTH_LONG).show()
+                    Toast.makeText(this, "Cuenta existente...", Toast.LENGTH_LONG).show()
                 }
 
-                startActivity(Intent(this@LoginActivity, MainActivity::class.java))
+                startActivity(Intent(this, MainActivity::class.java))
                 finish()
             }
             .addOnFailureListener{e->
-                Toast.makeText(this@LoginActivity, "Login Fallido...", Toast.LENGTH_LONG).show()
+                Toast.makeText(this, "Login Fallido...", Toast.LENGTH_LONG).show()
                 Log.e("DEMO_API", "firebaseAuthWithGoogleAccount: ${e.message}")
 
             }
